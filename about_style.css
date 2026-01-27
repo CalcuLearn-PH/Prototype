@@ -319,10 +319,12 @@ nav {
   height: 150px;
   margin-bottom: 20px;
 }
-hr.hidden-article,
-hr.hidden-article.standby,
-hr.hidden-article.view {
-  opacity: 0;
+hr.hidden-article {
+  border-style: solid;
+  border-color: white;
+  border-radius: 0.5rem;
+  border-width: 0.15rem;
+  margin: 1rem 2rem;
 }
 .hidden-article.standby {
   opacity: 0.05;
@@ -374,7 +376,6 @@ hr.hidden-article.view {
 }
 .article-container {
   position: relative;
-  top: 22.5rem;
   width: 100%;
   height: auto;
 }
@@ -387,6 +388,14 @@ hr.hidden-article.view {
 }
 #article-column-2 {
   left: 50%;
+}
+.container-title {
+  font-family: Onest;
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  display: block;
+  padding: 0.5rem 2rem 1rem 2rem;
 }
 .article-title {
   font-family: Onest;
@@ -458,9 +467,6 @@ hr.hidden-article.view {
     top: 0.5rem;
     width: 100%;
     height: auto;
-  }
-  #article-column-3 {
-    padding-top: 2rem;
   }
   #article-column-2 {
     left: 0%;
@@ -596,11 +602,25 @@ hr.hidden-article.view {
   .article-background {
     height: 600px;
   }
+  .container-title {
+    font-size: 27.5px;
+    padding: 0.5rem 1.5rem;
+  }
+  hr.hidden-article {
+    margin: 0.5rem 1.5rem;
+  }
+  .article-container {
+    position: relative;
+    top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    height: auto;
+  }
   .article-title {
     display: block;
     font-size: 17.5px;
     height: 17.5px;
-    padding: 0rem 0.5rem 0rem 1.5rem;
+    padding: 0rem 0.5rem 0.5rem 1.5rem;
   }
   .article-subtitle {
     display: block;
@@ -719,6 +739,9 @@ hr.hidden-article.view {
   .main-headline-body {
     font-size: 10px;
   }
+  .container-title {
+    font-size: 25px;
+  }
   .researcher-title {
     display: block;
   }
@@ -730,7 +753,6 @@ hr.hidden-article.view {
     font-size: 12.5px;
     padding: 0rem 0.5rem 0.5rem 1.5rem;
   }
-
   .article-body {
     padding-top: 0.5rem;
     font-size: 10px;
@@ -771,7 +793,6 @@ hr.hidden-article.view {
   #researcher3-image,
   #researcher4-image {
     background-color: #ffffff;
-    left: 1rem;
     position: absolute;
     width: 80px;
     height: 80px;
