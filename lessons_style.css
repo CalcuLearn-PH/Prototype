@@ -90,7 +90,7 @@
 body {
   min-height: 100vh;
   max-width: 100vw;
-  background-color: var(--color-2);
+  background-color: var(--color-3);
   position: relative;
 }
 .navigation-bar {
@@ -310,16 +310,12 @@ nav {
   width: 50%;
   left: 50%;
 }
-#article-1.hidden-article.standby,
-#download-1.hidden-article.standby,
-#download-2.hidden-article.standby {
+.hidden-article.standby {
   opacity: 0.05;
   scale: 90%;
   transition: 0.5s ease;
 }
-#article-1.hidden-article.view,
-#download-1.hidden-article.view,
-#download-2.hidden-article.view {
+.hidden-article.view {
   opacity: 1;
   scale: 100%;
   transition: 0.5s ease;

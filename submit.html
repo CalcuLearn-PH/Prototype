@@ -16,8 +16,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CalcuLearn</title>
-    <link rel="stylesheet" href="lessons_style.css" />
-    <script defer src="lessons.js"></script>
+    <link rel="stylesheet" href="submit.css" />
+    <script defer src="submit.js"></script>
   </head>
   <body>
     <noscript>
@@ -70,8 +70,8 @@
           <div class="nav-buttons">
             <a href="index.html" class="inactive-page">Home</a>
             <a href="about.html" class="inactive-page">About</a>
-            <a href="lessons.html" class="active-page"> Lessons </a>
-            <a href="submit.html" class="inactive-page">Submit</a>
+            <a href="lessons.html" class="inactive-page"> Lessons </a>
+            <a href="submit.html" class="active-page">Submit</a>
             <a href="contact.html" class="inactive-page">Contact</a>
           </div>
         </div>
@@ -84,10 +84,9 @@
       <div class="headline-image"></div>
       <div class="headline-image-overlay"></div>
       <div class="headline-text">
-        <h2 class="main-headline-text">Lessons Page</h2>
+        <h2 class="main-headline-text">Submission Page</h2>
         <p class="main-headline-body">
-          Access the researcher made strategic intervention material (SIM) here!
-          :D
+          Submit your answer sheets here for checking and grading.
         </p>
       </div>
       <div class="wave">
@@ -128,103 +127,127 @@
       <div class="article-text">
         <div id="article-1" class="hidden-article">
           <h3 class="article-title">
-            DOWNLOAD THE RESEARCHER-MADE MATERIAL BELOW
+            KINDLY FILL OUT THE FORM BELOW TO SUBMIT YOUR ANSWER SHEET
           </h3>
           <p class="article-body">
-            Click the corresponding name that you wish to download
+            Answer all necessary fields and upload your answer sheet in PDF or
+            image format. <br /><br />
+            Click the "Submit Answer Sheet" button when done.
           </p>
         </div>
-        <div id="article-download">
-          <div id="download-1" class="hidden-article">
-            <h3 class="article-title">
-              <a href="./Images/Trollface.png" download
-                >LIMITS AND CONTINUITY</a
-              >
-            </h3>
-            <div class="article-body">
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM I - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM II - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM III - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM IV - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div id="download-2" class="hidden-article">
-            <h3 class="article-title">DERIVATIVES</h3>
-            <div class="article-body">
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM V - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM VI - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM VII - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM VIII - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM IX - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="hidden-list">
-                  <a href="/Images/Mr_Bean.jpg" download=""
-                    >SIM X - [INSERT TITLE HERE]</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <div id="article-2" class="hidden-article">
-          <h3 class="article-title">SUBMIT YOUR ANSWER SHEETS HERE</h3>
-          <button><a href="submit.html">SUBMIT</a></button>
+          <form id="form" class="container m-4 pl-4">
+            <div class="hidden-article field">
+              <label class="label">NAME <em>(OPTIONAL)</em></label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Optional"
+                  name="Student Name or Nickname"
+                />
+              </div>
+            </div>
+            <div class="hidden-article field">
+              <label class="label">SECTION</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="11 STEM "
+                  name="Section"
+                />
+              </div>
+            </div>
+            <div class="hidden-article field">
+              <label class="label"
+                >STRATEGIC INTERVENTION MATERIAL (SIM) ANSWERED</label
+              >
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="SIM No. (1 - 10)"
+                  name="SIM No."
+                />
+              </div>
+            </div>
+            <div class="hidden-article field">
+              <label class="label">DATE OF SUBMISSION</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="date"
+                  placeholder="Date of Submission"
+                  name="DOS"
+                />
+              </div>
+            </div>
+            <div class="hidden-article field">
+              <label class="label">UPLOAD ANSWER SHEET</label>
+              <div class="control">
+                <div class="file has-name is-fullwidth">
+                  <label class="file-label">
+                    <input
+                      class="file-input"
+                      type="file"
+                      name="theFile"
+                      id="fileInput"
+                      accept="*/*"
+                    />
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="file-label"> Choose a file… </span>
+                    </span>
+                    <span class="file-name" id="fileNameDisplay">
+                      No file selected
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" name="filename" id="actualFilename" />
+            <div class="hidden-article field">
+              <label class="label">REMARKS <em>(OPTIONAL)</em></label>
+              <div class="control">
+                <textarea
+                  class="textarea"
+                  placeholder="Insert Your Remarks Here (Optional)"
+                  name="Notes"
+                ></textarea>
+              </div>
+            </div>
+            <div class="hidden-article field is-grouped">
+              <div class="control">
+                <span id="button-reminder">
+                  <button
+                    class="button is-primary"
+                    type="submit"
+                    id="submit-button"
+                  >
+                    Submit Answer Sheet
+                  </button>
 
-          <button><a href="submit.html">SUBMIT</a></button>
+                  <em>Once submitted, your answer sheet will be processed.</em>
+                </span>
+              </div>
+              <div class="control">
+                <button
+                  class="button is-danger"
+                  type="button"
+                  onclick="
+                    document.getElementById('form').reset();
+                    document.getElementById('fileNameDisplay').textContent =
+                      'No file selected';
+                  "
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

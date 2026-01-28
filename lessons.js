@@ -85,3 +85,4 @@ hiddenarticleElements.forEach((el) => observer.observe(el));
 
 const hiddenlisteElements = document.querySelectorAll(".hidden-list");
 hiddenlisteElements.forEach((el) => observer.observe(el));
+const form = document.getElementById("uploadForm");
