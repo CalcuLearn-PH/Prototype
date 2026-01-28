@@ -91,7 +91,6 @@ const submitButton = document.getElementById("submit-button");
 const fileInput = document.getElementById("fileInput");
 const fileNameDisplay = document.getElementById("fileNameDisplay");
 
-// Update displayed filename on file selection
 fileInput.addEventListener("change", function () {
   if (this.files && this.files.length > 0) {
     fileNameDisplay.textContent = this.files[0].name;
@@ -100,7 +99,6 @@ fileInput.addEventListener("change", function () {
   }
 });
 
-// Function to handle file upload
 async function uploadFile(file) {
   return new Promise((resolve, reject) => {
     const fr = new FileReader();
@@ -192,10 +190,41 @@ form.addEventListener("submit", async function (e) {
   }
 });
 
-// Enhance cancel button to reset file input display
 const cancelButton = form.querySelector("button.is-danger");
 cancelButton.addEventListener("click", function () {
   form.reset();
   fileNameDisplay.textContent = "No file selected";
   messageDiv.style.display = "none";
 });
+
+let url =
+  "https://docs.google.com/spreadsheets/d/1bq94u1OZmLpOgHi0kXGelxN8R3lF0YlaHlyH_Z0Q1Co/gviz/tq?";
+const output = document.querySelector(".output");
+const query = encodeURIComponent("Select A, B, C, D");
+console.log(query);
+url = url + "&tq=" + query;
+fetch(url)
+  .then((res) => res.text())
+  .then((rep) => {
+    const data = JSON.parse(rep.substr(47).slice(0, -2));
+    const row = document.createElement("tr");
+    output.append(row);
+    data.table.cols.forEach((heading) => {
+      console.log(heading);
+      const cell = document.createElement("td");
+      cell.textContent = heading.label;
+      row.append(cell);
+    });
+    data.table.rows.forEach((main) => {
+      const container = document.createElement("tr");
+
+      output.append(container);
+      //console.log(main.c);
+      main.c.forEach((ele) => {
+        const cell = document.createElement("td");
+        cell.textContent = ele.v;
+        container.append(cell);
+      });
+    });
+    console.log(data);
+  });

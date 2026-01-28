@@ -198,7 +198,7 @@ nav {
   transform: translateX(-50%);
   position: absolute;
   height: inherit;
-  background-image: url("./Images/Calculus_Blackboard.webp");
+  background-image: url("./Images/Scientific_Calculator.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
@@ -296,6 +296,9 @@ nav {
   transform: translateY(5rem);
   width: 100%;
 }
+#form {
+  width: 100%;
+}
 .input,
 .textarea {
   width: 100%;
@@ -389,6 +392,36 @@ button.button.is-danger:hover {
   font-family: Montserrat;
   color: white;
   font-size: 16px;
+}
+.article-column {
+  position: relative;
+  height: 100vh;
+}
+#article-2,
+#article-3 {
+  position: absolute;
+  width: 50%;
+}
+#article-3 {
+  left: 50%;
+}
+#leaderboard {
+  font-size: 16px;
+  font-family: Montserrat;
+  color: white;
+}
+
+td {
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+}
+table {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+table {
+  table-layout: fixed;
 }
 #article-download {
   position: relative;
@@ -584,13 +617,33 @@ button.button.is-danger:hover {
   .article-background {
     height: 400px;
   }
-  .article-title {
+  .article-title,
+  .label {
     font-size: 17.5px;
     padding: 0.5rem 1.5rem 0rem 1.5rem;
+  }
+  .control {
+    margin: 0.15rem 4.5rem 1rem 1.5rem;
   }
   .article-body {
     font-size: 12.5px;
     padding: 0.3rem 1.5rem 1rem 2.5rem;
+  }
+  .input,
+  .select select,
+  .textarea,
+  .file-cta,
+  .file-name,
+  button,
+  #button-reminder,
+  #leaderboard {
+    font-size: 12.5px;
+  }
+  #article-2,
+  #article-3 {
+    left: 0%;
+    width: 100%;
+    position: relative;
   }
   .headline-button-text,
   .headline-button-text:hover {
@@ -654,7 +707,8 @@ button.button.is-danger:hover {
   #article-1 p {
     position: relative;
   }
-  .article-title {
+  .article-title,
+  .label {
     font-size: 15px;
   }
   p.article-body {
@@ -662,6 +716,16 @@ button.button.is-danger:hover {
   }
   .article-body {
     font-size: 10px;
+  }
+  .input,
+  .select select,
+  .textarea,
+  .file-cta,
+  .file-name,
+  button,
+  #button-reminder,
+  #leaderboard {
+    font-size: 12.5px;
   }
   #download-1,
   #download-2 {
