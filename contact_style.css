@@ -287,18 +287,12 @@ nav {
   height: 125px;
   margin-bottom: 20px;
 }
-#article-1.hidden-article.standby,
-#article-2.hidden-article.standby,
-#article-3.hidden-article.standby,
-#article-4.hidden-article.standby {
+.standby {
   opacity: 0.05;
   scale: 90%;
   transition: 0.5s ease;
 }
-#article-1.hidden-article.view,
-#article-2.hidden-article.view,
-#article-3.hidden-article.view,
-#article-4.hidden-article.view {
+.view {
   opacity: 1;
   scale: 100%;
   transition: 0.5s ease;
@@ -343,8 +337,7 @@ nav {
 #researcher2-image img,
 #researcher3-image img,
 #researcher4-image img {
-  width: 110px;
-  margin: 10px 15px;
+  width: 125px;
 }
 .article-column {
   position: absolute;
@@ -603,8 +596,7 @@ nav {
   #researcher2-image img,
   #researcher3-image img,
   #researcher4-image img {
-    width: 80px;
-    margin: 10px 15px;
+    width: 100px;
   }
   .headline-button-text,
   .headline-button-text:hover {
@@ -736,7 +728,6 @@ nav {
   #researcher2-image img,
   #researcher3-image img,
   #researcher4-image img {
-    width: 60px;
-    margin: 7px 10px;
+    width: 80px;
   }
 }

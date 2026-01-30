@@ -119,6 +119,33 @@ async function uploadFile(file) {
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
+  // Validate required fields
+  const studentName = document
+    .querySelector('input[name="Student Name"]')
+    .value.trim();
+  const section = document.querySelector('input[name="Section"]').value.trim();
+  const simNo = document.querySelector('input[name="SIM No."]').value.trim();
+  const dos = document.querySelector('input[name="DOS"]').value.trim();
+  const ageInput = document.querySelector('input[name="Age"]');
+  const age = ageInput ? ageInput.value.trim() : "";
+  const genderEl = document.querySelector('input[name="Gender"]:checked');
+  const gender = genderEl ? genderEl.value : "";
+
+  if (
+    !studentName ||
+    !gender ||
+    !age ||
+    !section ||
+    !simNo ||
+    !dos ||
+    fileInput.files.length === 0
+  ) {
+    alert(
+      "Please fill out all required fields:\n- Name\n- Gender\n- Age\n- Section\n- SIM No.\n- Date of Submission\n- Answer Sheet File",
+    );
+    return;
+  }
+
   submitButton.textContent = "Submitting...";
   submitButton.style.display = "block";
   submitButton.style.backgroundColor = "beige";
@@ -166,6 +193,62 @@ form.addEventListener("submit", async function (e) {
       submitButton.style.color = "white";
       form.reset();
       fileNameDisplay.textContent = "No file selected";
+
+      // Download SIM file based on SIM No. input
+      const simNo = formDataObj["SIM No."];
+      const simNum = parseInt(simNo, 10);
+
+      if (Number.isInteger(simNum) && simNum >= 1 && simNum <= 10) {
+        const numberToRoman = (num) => {
+          const romanMap = [
+            { value: 10, numeral: "X" },
+            { value: 9, numeral: "IX" },
+            { value: 5, numeral: "V" },
+            { value: 4, numeral: "IV" },
+            { value: 1, numeral: "I" },
+          ];
+          let roman = "";
+          let n = parseInt(num, 10);
+          for (let i = 0; i < romanMap.length; i++) {
+            while (n >= romanMap[i].value) {
+              roman += romanMap[i].numeral;
+              n -= romanMap[i].value;
+            }
+          }
+          return roman;
+        };
+
+        const romanNumeral = numberToRoman(simNum);
+        const simFileName = `SIM ${romanNumeral}`;
+        const simFilePath = `./Answer Key/${simFileName} - (Answer Key Included).pdf`;
+
+        fetch(encodeURI(simFilePath))
+          .then((response) => {
+            if (response.ok) {
+              return response.blob();
+            } else {
+              console.warn(`SIM file not found: ${simFilePath}`);
+              return null;
+            }
+          })
+          .then((blob) => {
+            if (blob) {
+              const url = window.URL.createObjectURL(blob);
+              const link = document.createElement("a");
+              link.href = url;
+              link.download = `${simFileName} - (Answer Key Included).pdf`;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              window.URL.revokeObjectURL(url);
+            }
+          })
+          .catch((error) => {
+            console.warn("Error downloading SIM file:", error);
+          });
+      } else {
+        console.warn("SIM No. out of range, skipping download");
+      }
     } else {
       throw new Error(data.message || "Submission failed");
     }
@@ -203,28 +286,69 @@ const output = document.querySelector(".output");
 const query = encodeURIComponent("Select A, B, C, D");
 console.log(query);
 url = url + "&tq=" + query;
+
+const tdObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const el = entry.target;
+    if (!entry.isIntersecting && !el.classList.contains("standby")) {
+      el.classList.add("standby");
+      el.classList.remove("view");
+    } else if (entry.isIntersecting && !el.classList.contains("view")) {
+      el.classList.add("standby");
+      setTimeout(() => {
+        el.classList.remove("standby");
+        el.classList.add("view");
+      }, 100);
+    }
+  });
+}, {});
+
 fetch(url)
   .then((res) => res.text())
   .then((rep) => {
     const data = JSON.parse(rep.substr(47).slice(0, -2));
-    const row = document.createElement("tr");
-    output.append(row);
-    data.table.cols.forEach((heading) => {
-      console.log(heading);
+    let rowId = 0;
+
+    const makeCell = (trId, colIndex, text, isFirst) => {
       const cell = document.createElement("td");
-      cell.textContent = heading.label;
-      row.append(cell);
+      cell.classList.add(`cell-${colIndex}`, "hidden-list");
+      cell.textContent = text;
+      tdObserver.observe(cell);
+      return cell;
+    };
+
+    // header row
+    const headerRowId = rowId++;
+    const headerRow = document.createElement("tr");
+    headerRow.id = `row-${headerRowId}`;
+    headerRow.classList.add("row");
+    headerRow.classList.add("hidden-list");
+    output.append(headerRow);
+    (data.table.cols || []).forEach((heading, colIndex) => {
+      const label = heading && heading.label ? heading.label : "";
+      const cell = makeCell(headerRowId, colIndex, label, colIndex === 0);
+      headerRow.append(cell);
     });
-    data.table.rows.forEach((main) => {
+
+    // data rows
+    (data.table.rows || []).forEach((main) => {
+      const currentRowId = rowId++;
       const container = document.createElement("tr");
 
+      container.classList.add("row");
+      container.id = `row-${currentRowId}`;
+      container.classList.add("hidden-list");
       output.append(container);
-      //console.log(main.c);
-      main.c.forEach((ele) => {
-        const cell = document.createElement("td");
-        cell.textContent = ele.v;
+      (main.c || []).forEach((ele, colIndex) => {
+        const value = ele && ele.v !== undefined ? ele.v : "";
+        const cell = makeCell(currentRowId, colIndex, value, colIndex === 0);
         container.append(cell);
       });
     });
+
     console.log(data);
+    const lastRow = output.querySelector("tr:last-child");
+    if (lastRow) {
+      lastRow.style.opacity = "0";
+    }
   });

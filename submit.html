@@ -16,6 +16,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CalcuLearn</title>
+    <link rel="icon" type="image/x-icon" href="./Images/CalcuLearn.png" />
     <link rel="stylesheet" href="submit.css" />
     <script defer src="submit.js"></script>
   </head>
@@ -139,14 +140,44 @@
           <div id="article-2" class="hidden-article">
             <form id="form" class="container m-4 pl-4">
               <div class="hidden-article field">
-                <label class="label">NAME <em>(OPTIONAL)</em></label>
+                <label class="label">NAME</label>
                 <div class="control">
                   <input
                     class="input"
                     type="text"
-                    placeholder="Optional"
+                    placeholder="Last Name, First Name M.I."
                     name="Student Name"
                   />
+                </div>
+              </div>
+              <div id="field-column" class="hidden-article field">
+                <div id="age-field" class="hidden-article field">
+                  <label class="label">AGE</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="number"
+                      placeholder="Age"
+                      name="Age"
+                      min="1"
+                      max="100"
+                      step="1"
+                      required
+                    />
+                  </div>
+                </div>
+                <div id="gender-field" class="hidden-article field">
+                  <label class="label">GENDER</label>
+                  <div id="gender-input" class="control">
+                    <label class="radio">
+                      <input type="radio" name="Gender" value="Male" required />
+                      Male
+                    </label>
+                    <label class="radio" style="margin-left: 1rem">
+                      <input type="radio" name="Gender" value="Female" />
+                      Female
+                    </label>
+                  </div>
                 </div>
               </div>
               <div class="hidden-article field">
@@ -167,9 +198,12 @@
                 <div class="control">
                   <input
                     class="input"
-                    type="text"
-                    placeholder="SIM No. (1 - 10)"
+                    type="number"
+                    placeholder="SIM No. (1 - 10) - (Downloads corresponding answer key)"
                     name="SIM No."
+                    min="1"
+                    max="10"
+                    step="1"
                   />
                 </div>
               </div>
@@ -250,7 +284,21 @@
               </div>
             </form>
           </div>
-          <div id="article-3" class="hidden-article">
+          <div id="article-3">
+            <h3 class="article-title hidden-article">STUDENT LEADERBOARD</h3>
+            <p class="article-body hidden-article">
+              Once your answer sheets have been processed, it will update the
+              leaderboard below.<br /><br />
+              Do your best :D<br /><br />
+              <em
+                >*Leaderboard may take some time to update<br />Refresh the page
+                to see any updates</em
+              ><br /><br />
+              <em
+                >**If you do not see the leaderboard, just refresh the page<br />It
+                lags a bit sometimes</em
+              >
+            </p>
             <table id="leaderboard" class="output"></table>
           </div>
         </div>

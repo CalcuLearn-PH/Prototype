@@ -267,12 +267,14 @@ nav {
   animation-duration: 0.75s;
 }
 .article-background {
+  opacity: 0.5;
   position: absolute;
   background-color: var(--color-3);
   right: 0%;
   height: inherit;
   width: 100vw;
 }
+
 .article-text {
   position: absolute;
   z-index: 7;
@@ -282,16 +284,12 @@ nav {
 .hidden-article {
   opacity: 0;
 }
-#article-1.hidden-article.standby,
-#article-2.hidden-article.standby,
-#article-3.hidden-article.standby {
+.standby {
   scale: 50%;
   opacity: 0.5;
   transition: 0.5s ease;
 }
-#article-1.hidden-article.view,
-#article-2.hidden-article.view,
-#article-3.hidden-article.view {
+.view {
   opacity: 1;
   transition: 0.5s ease;
 }
@@ -302,7 +300,7 @@ nav {
   color: white;
   display: block;
   height: 25px;
-  padding: 0.5rem 2rem 0rem 2.5rem;
+  padding: 0.5rem 2.5rem 0rem 2.5rem;
 }
 .article-title a {
   text-decoration: none;
@@ -315,7 +313,10 @@ nav {
   text-align: justify;
   color: white;
   display: block;
-  padding: 0.3rem 2rem 1rem 4rem;
+  padding: 0.3rem 2.5rem 1rem 4rem;
+}
+.article-body strong {
+  font-weight: 800;
 }
 .section1 {
   position: relative;
@@ -447,11 +448,11 @@ nav {
   }
   .article-title {
     font-size: 17.5px;
-    padding: 0.5rem 1.5rem 0rem 1.5rem;
+    padding: 0.5rem 45% 0rem 1.5rem;
   }
   .article-body {
     font-size: 12.5px;
-    padding: 0.3rem 1.5rem 1rem 2.5rem;
+    padding: 0.3rem 45% 1rem 2.5rem;
   }
   .headline-button-text,
   .headline-button-text:hover {

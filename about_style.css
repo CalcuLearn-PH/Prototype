@@ -373,8 +373,7 @@ hr.hidden-article {
 #researcher2-image img,
 #researcher3-image img,
 #researcher4-image img {
-  width: 125px;
-  margin: 15px 20px;
+  width: 150px;
 }
 .article-column-container {
   position: relative;
@@ -696,8 +695,7 @@ hr.hidden-article {
   #researcher2-image img,
   #researcher3-image img,
   #researcher4-image img {
-    width: 80px;
-    margin: 10px 15px;
+    width: 100px;
   }
   .headline-button-text,
   .headline-button-text:hover {
@@ -820,7 +818,7 @@ hr.hidden-article {
   #researcher2-image img,
   #researcher3-image img,
   #researcher4-image img {
-    width: 60px;
+    width: 80px;
     margin: 7px 10px;
   }
 }

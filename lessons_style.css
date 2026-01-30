@@ -357,7 +357,6 @@ nav {
 .article-body ul {
   font-family: Montserrat;
 }
-
 .article-body ul li a {
   text-decoration: none;
   color: #ffffff;
@@ -367,6 +366,45 @@ nav {
   font-weight: 600;
   color: #ffffff;
   transition: 0.1s ease;
+}
+#submission {
+  display: flex;
+  height: 35px;
+  position: absolute;
+  vertical-align: middle;
+}
+#submission.article-title {
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0rem 2.5rem;
+}
+#submit-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(25rem);
+  margin: 0rem 2rem 0rem 5rem;
+  border-radius: 0.35rem;
+  padding: 0.25rem;
+  transition: 0.15s ease-in-out;
+}
+#submit:hover {
+  font-weight: 800;
+  transition: 0.15s ease-in-out;
+}
+#submit-button:hover {
+  background-color: var(--color-8);
+  border-color: #fd8753;
+  transition: 0.15s ease-in-out;
+}
+#submit {
+  margin: 0rem 0.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 16px;
+  color: black;
+  transition: 0.15s ease-in-out;
 }
 .section1 {
   position: relative;
@@ -505,6 +543,9 @@ nav {
     right: 0%;
     overflow-x: hidden;
   }
+  #submit-button {
+    margin: 0;
+  }
 }
 @media (width <= 550px) {
   nav {
@@ -572,6 +613,18 @@ nav {
     left: 0%;
     position: relative;
     width: 100%;
+  }
+  #article-2 {
+    transform: translateY(100%);
+    position: absolute;
+  }
+  #submission {
+    position: relative;
+    padding-top: 0.5rem;
+  }
+  #submit-button {
+    position: absolute;
+    transform: translateX(1.5rem) translateY(1.5rem);
   }
   .headline-button-text,
   .headline-button-text:hover {
